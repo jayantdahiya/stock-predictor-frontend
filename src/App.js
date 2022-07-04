@@ -1,14 +1,15 @@
 import './App.css';
-import NavBar from './Components/NavBar';
-import Content from './Components/Content';
-import Footer from './Components/Footer';
+import { Routes, Route } from "react-router-dom";
+import NavBar from './Body/NavBar';
+import Content from './Body/Content';
+import Footer from './Body/Footer';
 import { createContext, useState } from 'react';
-import Result from './Components/Result';
+import Result from './Body/Result';
 
 export const AppContext = createContext();
 
 function App() {
-  const [ticker, setTicker] = useState('AAPL');
+  const [ticker, setTicker] = useState();
   const [model, setModel] = useState();
   return (
       <AppContext.Provider value={{
@@ -18,8 +19,10 @@ function App() {
         setModel
       }}>
         <NavBar />
-        {/* <Content /> */}
-        <Result />
+        <Routes>
+          <Route path="/" element={<Content />} />
+          <Route path='/result' element={<Result />} />
+        </Routes>
         <Footer />
       </AppContext.Provider>
   );

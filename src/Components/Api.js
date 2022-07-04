@@ -1,9 +1,15 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-function Api() {
-  return (
-    <div>Api</div>
-  )
+export default class Api extends Component {
+    constructor(props){
+        super(props)
+        this.state = {
+            data : []
+        }
+    }
+  render() {
+    return (
+      this.data
+    )
+  }
 }
-
-export default Api
