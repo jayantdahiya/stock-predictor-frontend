@@ -17,7 +17,7 @@ function Result() {
       <div className="hero-content flex-col lg:flex-row-reverse">
         <Chart />
         <div className="pl-10">
-          <h1 class="text-4xl text-center">The Predicted Forecast</h1>
+          <h1 class="text-4xl">The Predicted Forecast</h1>
           <p class="py-6">
             This prediction is valuated by the prophet model by apply linear
             regression function on the historical data of the ticker.
