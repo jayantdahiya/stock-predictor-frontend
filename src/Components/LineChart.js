@@ -5,7 +5,7 @@ import {
   CartesianGrid,
   XAxis,
   YAxis,
-  Tooltip,
+  Tooltip
 } from "recharts";
 import { AppContext } from "../App";
 
@@ -14,10 +14,15 @@ function Chart() {
   let [responseData, setResponseData] = useState();
   var apiData = [];
 
+
   // axios api fetch
-  var bodyData = JSON.stringify({
-    ticker: ticker,
-  });
+  if(ticker) {
+    var bodyData = JSON.stringify({
+      ticker: ticker,
+    });
+  } else {
+    alert('No ticker name found!')
+  }
 
   var config = {
     method: "post",
@@ -35,6 +40,7 @@ function Chart() {
       );
     } catch (error) {
       console.log(error.message);
+      alert(`Error: ${error}`, error.data)
     }
   }
 
@@ -42,13 +48,6 @@ function Chart() {
     fetchApi();
   }, []);
 
-  //   if (responseData) {
-  //     console.log(responseData[1].date,"responseData",responseData[1].price)
-  //     for (let i = 0; i < responseData.length; i++) {
-  //       apiData.push({ date: responseData[i].date, price: responseData[i].price });
-  //     }
-  //   }
-  // console.log(apiData,"niceeee", responseData)
 
   if (responseData) {
     apiData = [
@@ -93,12 +92,12 @@ function Chart() {
         width={600}
         height={350}
         data={apiData}
-        margin={{ top: 5, right: 20, bottom: 5, left: 0 }}
+        margin={{ top: 5, right: 0, bottom: 5, left: 0 }}
       >
         <Line type="monotone" dataKey="price" stroke="#8884d8" />
-        <CartesianGrid stroke="#ccc" strokeDasharray="7 7" />
-        <XAxis dataKey="date" />
-        <YAxis dataKey="price" />
+        <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
+        <XAxis dataKey="date" interval={1} />
+        <YAxis dataKey="price" stroke="#ccc" domain={["auto" , "auto"]} />
         <Tooltip />
       </LineChart>
     );
