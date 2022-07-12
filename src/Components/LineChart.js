@@ -26,9 +26,9 @@ function Chart() {
 
   var config = {
     method: "post",
-    url: "https://stock-api-mzqhgu64aa-uc.a.run.app/predict",
+    url: "https://gcp-api-mzqhgu64aa-uc.a.run.app/predict",
     headers: {
-      "Access-Control-Allow-Origin" : "*",
+      "Access-Control-Allow-Origin": "*",
       "Content-Type": "application/json",
     },
     data: bodyData,
