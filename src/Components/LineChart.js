@@ -26,7 +26,7 @@ function Chart() {
 
   var config = {
     method: "post",
-    url: "https://gcp-api-mzqhgu64aa-uc.a.run.app/predict",
+    url: "https://gcp-api1-mzqhgu64aa-uc.a.run.app/predict",
     headers: {
       "Access-Control-Allow-Origin": "*",
       "Content-Type": "application/json",
