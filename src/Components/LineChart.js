@@ -11,6 +11,7 @@ import { AppContext } from "../App";
 
 function Chart() {
   const { ticker } = useContext(AppContext);
+  const apiUrl = process.env.REACT_APP_API_Link;
   let [responseData, setResponseData] = useState();
   var apiData = [];
 
@@ -26,7 +27,7 @@ function Chart() {
 
   var config = {
     method: "post",
-    url: "https://gcp-api1-mzqhgu64aa-uc.a.run.app/predict",
+    url: apiUrl,
     headers: {
       "Access-Control-Allow-Origin": "*",
       "Content-Type": "application/json",
