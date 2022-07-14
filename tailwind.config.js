@@ -8,7 +8,7 @@ module.exports = {
 
   daisyui: {
     styled: true,
-    themes: ["dark", "synthwave"],
+    themes: ["dark", "synthwave", "retro"],
     base: true,
     utils: true,
     logs: true,
